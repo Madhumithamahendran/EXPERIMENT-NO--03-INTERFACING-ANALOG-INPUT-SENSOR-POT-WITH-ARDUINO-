@@ -1,4 +1,4 @@
-# EXPERIMENT-NO--03-INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-
+# EXPERIMENT-NO--02-INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-
 
 
 
@@ -52,9 +52,17 @@ CIRCUIT DIAGRAM
 **FIGURE -01
 **
 
+
+
+
+![robo-1-ns](https://user-images.githubusercontent.com/119394403/234005583-9bdcd154-690d-47b8-8806-f56e23c5f3b7.png)
+
+
+
 **PROCEDURE:**
 
-1.	Connect the circuit as per the circuit diagram 
+1.	Connect![robo-1-ns]
+ the circuit as per the circuit diagram 
 2.	Connect the board to your computer via the USB cable.
 3.	If needed, install the drivers.
 4.	Launch the Arduino IDE.
@@ -67,8 +75,30 @@ CIRCUIT DIAGRAM
 
 
 **PROGRAM** 
+ int potPin= A5;
+ int ledPin= 2;
  
-
+ void setup()
+ {
+    pinMode (potPin, INPUT);
+    pinMode (ledPin, OUTPUT);
+    Serial.begin(9600);
+ }
+ 
+ void loop()
+ {
+ int PotMeasure = analogRead(A5);
+ Serial.print("Sensor value: ");
+ Serial.print(PotMeasure);
+ if (PotMeasure>=650)
+ {
+    digitialWrite(2, HIGH);
+ }
+ else
+ {
+    digitalWrite(2, LOW);
+ }
+}
 
 
 
@@ -81,8 +111,8 @@ CIRCUIT DIAGRAM
 **Simulation output:** 
 **
 
+![robo-1s](https://user-images.githubusercontent.com/119394403/234004437-1a42c823-1850-4743-be0b-38df0eb4243b.png)
 
-[My image](username.github.com/repository/img/image.jpg)
 
 
 
